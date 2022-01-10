@@ -112,6 +112,7 @@ defimpl Plsm.Database, for: Plsm.Database.PostgreSQL do
 
   defp to_column(row) do
     {_, name} = Enum.fetch(row, 0)
+    IO.puts("-->#{Enum.fetch(row, 1)}")
     type = Enum.fetch(row, 1) |> get_type
     {_, foreign_table} = Enum.fetch(row, 3)
     {_, foreign_field} = Enum.fetch(row, 4)
