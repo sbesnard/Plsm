@@ -151,8 +151,7 @@ defimpl Plsm.Database, for: Plsm.Database.PostgreSQL do
       String.starts_with?(upcase, "TIMESTAMP") == true -> :timestamp
       String.starts_with?(upcase, "TIME") == true -> :time
       String.starts_with?(upcase, "BOOLEAN") == true -> :boolean
-      String.starts_with?(upcase, "UUID") == true -> :uuid
-      true -> :none
+      true -> :uuid
     end
   end
 end
