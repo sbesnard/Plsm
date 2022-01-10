@@ -112,6 +112,7 @@ defimpl Plsm.Database, for: Plsm.Database.PostgreSQL do
 
   defp to_column(row) do
     {_, name} = Enum.fetch(row, 0)
+    IO.puts(" #{name}:")
     {_,t} = Enum.fetch(row, 1)
     
     IO.puts("-->#{t}")
