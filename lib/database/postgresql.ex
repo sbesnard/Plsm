@@ -129,7 +129,7 @@ defimpl Plsm.Database, for: Plsm.Database.PostgreSQL do
   defp get_type(start_type) do
     {_, type} = start_type
     upcase = String.upcase(type)
-
+    IO.puts(type)
     cond do
       String.starts_with?(upcase, "INTEGER") == true -> :integer
       String.starts_with?(upcase, "INT") == true -> :integer
