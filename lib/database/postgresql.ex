@@ -112,10 +112,10 @@ defimpl Plsm.Database, for: Plsm.Database.PostgreSQL do
 
   defp to_column(row) do
     {_, name} = Enum.fetch(row, 0)
-    IO.puts(" #{name}:")
+    
     {_,t} = Enum.fetch(row, 1)
     
-    IO.puts("-->#{t}")
+  
     type = Enum.fetch(row, 1) |> get_type
     {_, foreign_table} = Enum.fetch(row, 3)
     {_, foreign_field} = Enum.fetch(row, 4)
@@ -133,7 +133,6 @@ defimpl Plsm.Database, for: Plsm.Database.PostgreSQL do
   defp get_type(start_type) do
     {_, type} = start_type
     upcase = String.upcase(type)
-    IO.puts(type)
     cond do
       String.starts_with?(upcase, "INTEGER") == true -> :integer
       String.starts_with?(upcase, "INT") == true -> :integer
