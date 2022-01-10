@@ -70,6 +70,9 @@ defimpl Plsm.Database, for: Plsm.Database.PostgreSQL do
             a.attnum as num
          FROM pg_attribute a
          JOIN pg_class pgc ON pgc.oid = a.attrelid
+         JOIN pg_catalog.pg_namespace AS ns
+            ON pgc.relnamespace = ns.oid
+         
          left JOIN (
       	SELECT
       	tc.table_name as table,
@@ -101,6 +104,7 @@ defimpl Plsm.Database, for: Plsm.Database.PostgreSQL do
         AND pg_table_is_visible(pgc.oid)
         AND NOT a.attisdropped
         AND pgc.relname = '#{table.name}'
+        AND ns.nspname = '#{db.database_schema}'
         ORDER BY a.attname;", [])
 
     result.rows
