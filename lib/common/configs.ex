@@ -8,7 +8,7 @@ defmodule Plsm.Common.Configs do
       server: Application.get_env(:plsm, :server, ""),
       port: Application.get_env(:plsm, :port, ""),
       database_name: Application.get_env(:plsm, :database_name, ""),
-      database_name: Application.get_env(:plsm, :database_schema, "public"),
+      database_schema: Application.get_env(:plsm, :database_schema, "public"),
       username: Application.get_env(:plsm, :username, ""),
       password: Application.get_env(:plsm, :password, ""),
       type: Application.get_env(:plsm, :type, :mysql)
