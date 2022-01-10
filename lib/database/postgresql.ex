@@ -101,7 +101,6 @@ defimpl Plsm.Database, for: Plsm.Database.PostgreSQL do
         LEFT JOIN pg_index i ON
             (pgc.oid = i.indrelid AND i.indkey[0] = a.attnum)
         WHERE a.attnum > 0 AND pgc.oid = a.attrelid
-        AND pg_table_is_visible(pgc.oid)
         AND NOT a.attisdropped
         AND pgc.relname = '#{table.name}'
         AND ns.nspname = '#{db.database_schema}'
