@@ -4,7 +4,7 @@ defmodule Plsm.Database.PostgreSQL do
             username: "postgres",
             password: "postgres",
             database_name: "db",
-            database_schema : "public",
+            database_schema: "public",
             connection: nil
 end
 
@@ -17,7 +17,7 @@ defimpl Plsm.Database, for: Plsm.Database.PostgreSQL do
       username: configs.database.username,
       password: configs.database.password,
       database_name: configs.database.database_name,
-      database_schema : configs.database.database_schema
+      database_schema: configs.database.database_schema
     }
   end
 
